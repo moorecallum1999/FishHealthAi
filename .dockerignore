@@ -1,0 +1,8 @@
+fish_env/
+__pycache__/
+*.pyc
+dataset/
+results/
+.vscode/
+run.bat
+run_hidden.vbs

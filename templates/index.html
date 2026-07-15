@@ -1,0 +1,94 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fish Disease Detection</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+    <!-- Floating aquarium bubbles -->
+<div class="bubble b1"></div>
+<div class="bubble b2"></div>
+<div class="bubble b3"></div>
+<div class="bubble b4"></div>
+<div class="bubble b5"></div>
+
+  <div class="page">
+
+    <header class="header">
+      <div class="brand">
+        <h1>Fish Health AI</h1>
+        <p class="subtitle">Upload a photo of your fish and get a quick health check (healthy vs unhealthy).</p>
+      </div>
+      <div class="logo-box">🐟</div>
+    </header>
+
+    <main class="grid">
+
+      <!-- LEFT: Upload -->
+      <section class="panel">
+        <h2>Upload a fish image</h2>
+
+        <div id="dropzone" class="dropzone">
+          <p class="dropzone-text">
+            <strong>Drag & Drop</strong>
+            or click to select a photo
+            <div class="dropzone-hint">JPG / PNG recommended</div>
+          </p>
+          <input id="fileInput" type="file" accept="image/*" />
+        </div>
+
+        <p class="disclaimer">
+          Disclaimer: This tool is for educational use and not a substitute for professional veterinary diagnosis.
+          If your fish is unwell, consult an aquatic specialist.
+        </p>
+      </section>
+
+      <!-- RIGHT: Results -->
+      <section class="panel">
+        <div class="preview-wrap">
+          <div class="preview-title">Preview</div>
+          <div id="previewPlaceholder" class="preview-placeholder">Your uploaded image will appear here</div>
+          <img id="preview" class="preview" alt="Uploaded preview" />
+        </div>
+
+        <div class="result">
+          <div id="predictionBadge" class="badge">
+            <span class="dot"></span>
+            <span>Result</span>
+          </div>
+
+          <div class="prediction-title" id="predictionText">Predicted result will appear here</div>
+
+          <div class="confidence-row">
+            <div class="confidence-box">
+              <div class="confidence-title">Confidence</div>
+              <div id="confidenceText" class="confidence-value">--%</div>
+            </div>
+
+            <div class="progress" aria-label="confidence bar">
+              <div id="confidenceBar"></div>
+            </div>
+          </div>
+
+          <p id="explanationText" class="explanation"></p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <h3>Feedback (was this useful?)</h3>
+      <div class="feedback">
+        <button id="btnYes" class="btn primary">Yes</button>
+        <button id="btnNo" class="btn">No</button>
+      </div>
+      <p id="feedbackStatus" class="feedback-status"></p>
+    </footer>
+
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
