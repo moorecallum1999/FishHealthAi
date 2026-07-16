@@ -15,20 +15,25 @@ const explanationText = document.getElementById("explanationText");
 
 // ---------- UI helpers ----------
 
+// All possible prediction labels the badge needs to style differently.
+// Keep this in sync with server.py's EXPLANATIONS keys / your model's classes.
+const RESULT_CLASSES = ["healthy", "parasitic", "fungal", "bacterial", "dropsy"];
+
 function setAnalyzing() {
   predictionText.textContent = "Analyzing image...";
   confidenceText.textContent = "--%";
   explanationText.textContent = "";
   confidenceBar.style.width = "0%";
-  predictionBadge.classList.remove("healthy", "unhealthy");
+  predictionBadge.classList.remove(...RESULT_CLASSES);
 }
 
 function setResult(prediction, confidence, explanation) {
 
-  predictionBadge.classList.remove("healthy", "unhealthy");
+  predictionBadge.classList.remove(...RESULT_CLASSES);
 
-  if (prediction === "healthy") predictionBadge.classList.add("healthy");
-  if (prediction === "unhealthy") predictionBadge.classList.add("unhealthy");
+  if (RESULT_CLASSES.includes(prediction)) {
+    predictionBadge.classList.add(prediction);
+  }
 
   predictionText.textContent = `Predicted: ${prediction}`;
   confidenceText.textContent = `${confidence}%`;

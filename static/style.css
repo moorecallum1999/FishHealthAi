@@ -250,7 +250,10 @@ body::before{
 }
 
 .badge.healthy .dot{ background: var(--ok); box-shadow: 0 0 10px rgba(124,255,201,.7); }
-.badge.unhealthy .dot{ background: var(--danger); box-shadow: 0 0 10px rgba(255,107,107,.7); }
+.badge.parasitic .dot{ background: #ffb84d; box-shadow: 0 0 10px rgba(255,184,77,.7); }
+.badge.fungal .dot{ background: #c58fff; box-shadow: 0 0 10px rgba(197,143,255,.7); }
+.badge.bacterial .dot{ background: var(--danger); box-shadow: 0 0 10px rgba(255,107,107,.7); }
+.badge.dropsy .dot{ background: #ffe066; box-shadow: 0 0 10px rgba(255,224,102,.7); }
 
 .prediction-title{
   margin: 14px 0 10px;
@@ -390,4 +393,3 @@ body::before{
   15%  { opacity:.7; }
   100% { transform: translateY(-110vh); opacity:0; }
 }
-
